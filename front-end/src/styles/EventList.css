@@ -1,0 +1,41 @@
+.event-list {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background:  #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.event-card {
+    background-color: #307e94; /* Ajuste para a cor de fundo do form (exemplo) */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(26, 112, 41, 0.1);
+    padding: 20px;
+    width: 250px;
+    margin-top: 25px;
+    margin-left: 120px; /* Centralizar horizontalmente */
+    margin-right: auto; /* Centralizar horizontalmente */
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+}
+
+  
+.event-list h2 {
+    color: #333;
+}
+  
+.event-item {
+    list-style: none;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+} 
+.event-item:last-child {
+    border-bottom: none;
+}
+  

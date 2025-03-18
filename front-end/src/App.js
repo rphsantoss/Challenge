@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,9 +8,8 @@ import EventForm from './components/EventForm';
 const App = () => (
   <Router>
     <div>
-      <h1>Gerenciador de Eventos</h1>
       <Routes>
-        {/*<Route path="/" element={<EventList />} /> */}
+        <Route path="/" element={<EventList />} /> 
         <Route path="/create-registration" element={<RegistrationForm />} />
         <Route path="/create-event" element={<EventForm />} /> 
       </Routes>
