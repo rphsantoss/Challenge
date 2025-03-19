@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getEvents } from '../api';
+import { useNavigate } from "react-router-dom";
 import '../styles/EventList.css'; 
 
 const EventList = () => {
+    const navigate = useNavigate();
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
@@ -17,6 +19,10 @@ const EventList = () => {
         <>
             <h1>Lista de Eventos</h1> 
             <div className="event-list">
+            <button className="eventList-button"
+                    onClick={() => navigate("/create-event")} >
+                    Criar Evento
+                </button>
                 <ul>
                     {events.map((event) => (
                         <li key={event.id} className="event-card">
@@ -24,6 +30,8 @@ const EventList = () => {
                         </li>
                     ))}
                 </ul>
+
+                
             </div>
         </>
     );

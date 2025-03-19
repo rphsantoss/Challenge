@@ -5,6 +5,7 @@ import { createRegistration, getEvents, getRegistrationByEmail } from '../api';
 import '../styles/RegistrationForm.css';
 
 const RegistrationForm = () => {
+
     const { 
         register, 
         handleSubmit, 
@@ -58,11 +59,6 @@ const RegistrationForm = () => {
                         console.log("ID do usuário que referiu encontrado:", referredById);
                     } else {
                         console.warn("Usuário não encontrado ou sem ID:", referredUser);
-                        setSubmitStatus({
-                            success: false,
-                            error: 'O e-mail de quem te indicou não está cadastrado.'
-                        });
-                        return;
                     }
                 } catch (refError) {
                     console.error("Erro ao verificar email de referência:", refError);
@@ -178,6 +174,7 @@ const RegistrationForm = () => {
                     </button>
                 </form>
             </div>
+            
         </>
     );
 };

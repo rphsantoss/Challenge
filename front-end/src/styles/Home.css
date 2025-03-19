@@ -1,0 +1,40 @@
+.home-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.home-button {
+    background-color: #307e94;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(26, 112, 41, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.home-button:hover {
+    transform: translateY(-3px);
+    background-color: #256a7e;
+}
