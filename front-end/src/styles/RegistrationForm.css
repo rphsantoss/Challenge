@@ -1,4 +1,4 @@
-.event-form-container {
+.registration-form-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -7,14 +7,14 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.event-form-container h2 {
+.registration-form-container h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
 }
 
-.event-form {
+.registration-form {
     display: flex;
     flex-direction: column;
 }
@@ -23,31 +23,38 @@
     margin-bottom: 15px;
 }
 
-.form-group label {
+.registration-form-container label {
+    display: block;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #555;
 }
 
-.form-group input {
+.registration-form-container input,
+.registration-form-container select {
     width: 100%;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-.form-group input:focus {
+.registration-form-container input:focus,
+.registration-form-container select:focus {
     border-color: #61dafb;
     outline: none;
 }
 
-.error {
+.error-message {
     color: red;
+    background-color: #f9f9f9;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: -px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .success-message {
@@ -59,7 +66,7 @@
     text-align: center;
 }
 
-.error-message {
+.error-message-box {
     padding: 10px;
     background-color: #f44336;
     color: white;
@@ -72,7 +79,7 @@ h1 {
     text-align: center;
 }
 
-.submit-button {
+.registration-form-container button {
     padding: 12px;
     font-size: 16px;
     color: white;
@@ -81,13 +88,14 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-.submit-button:hover {
+.registration-form-container button:hover {
     background-color: #0f5981;
 }
 
-.submit-button:disabled {
+.registration-form-container button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }

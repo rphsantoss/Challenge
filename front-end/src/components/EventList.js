@@ -15,12 +15,12 @@ const EventList = () => {
 
     return (
         <>
-            <h1>Lista de Eventos</h1> {/* Agora está fora da div */}
+            <h1>Lista de Eventos</h1> 
             <div className="event-list">
                 <ul>
                     {events.map((event) => (
                         <li key={event.id} className="event-card">
-                            {event.title} - {event.date} - {event.capacity}
+                            {event.title} - {new Date(event.date).toLocaleDateString()} ({event.capacity} vagas)
                         </li>
                     ))}
                 </ul>

@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { createEvent } from '../api';
 import '../styles/EventForm.css'; 
 
-
 const EventForm = () => {
     const { 
         register, 
@@ -96,8 +95,7 @@ const EventForm = () => {
                     validate: value => {
                         const selectedDate = new Date(value);
                         const today = new Date();
-                        // Comparando apenas as datas, sem hora
-                        return selectedDate.setHours(0, 0, 0, 0) >= today.setHours(0, 0, 0, 0) 
+                        return selectedDate.setHours(0, 0, 0, 0) >= today.setHours(0, 0, 0, 0) //ignorando horas
                         || 'A data deve ser futura';
                     }
                     })}

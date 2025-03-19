@@ -52,9 +52,9 @@ export const deleteEvent = async (eventId) => {
     }
 };
     
-export const getRegistrations = async (eventId) => {
+export const getRegistrations = async () => {
     try {
-        const response = await api.get(`/api/registrations?eventId=${eventId}`);
+        const response = await api.get(`/api/registrations`);
         return response.data;
         } catch (error) {
         console.error('Erro ao listar inscrições:', error);
@@ -70,4 +70,20 @@ export const createRegistration = async (userData) => {
         console.error('Erro ao inscrever usuário:', error);
         throw error;
     }   
+};
+
+export const getRegistrationByEmail = async (email) => {
+    try {
+        // Corrija o caminho para incluir /api no início
+        const response = await api.get(`/api/registrations/by-email/${email}`);
+        // Com Axios, os dados já estão em response.data
+        return response.data;
+    } catch (error) {
+        if (error.response && error.response.status === 404) {
+            console.warn('Usuário não encontrado:', email);
+            return null;
+        }
+        console.error('Erro ao buscar usuário por email:', error);
+        throw error; // Deixe o erro ser capturado no onSubmit
+    }
 };

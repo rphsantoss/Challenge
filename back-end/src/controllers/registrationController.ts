@@ -1,4 +1,3 @@
-// src/controllers/registrationController.ts
 import { Request, Response } from 'express';
 import prisma from '../prismaClient';  // Prisma Client importado
 
@@ -35,6 +34,26 @@ const registrationController = {
         res.status(500).json({ error: 'Error creating registration' });
         }
     },
-};
 
+    registrationByEmail: async (req: Request, res: Response): Promise<void> => {
+        const { email } = req.params;
+    
+        try {
+            const user = await prisma.registration.findUnique({
+                where: { email: email.toLowerCase() }, 
+                select: { id: true } 
+            });
+    
+            if (!user) {
+                res.json({ id: null }); 
+                return;
+            }
+    
+            res.json(user);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Erro ao buscar usuário' });
+        }
+    }
+}    
 export default registrationController;

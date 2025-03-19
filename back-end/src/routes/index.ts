@@ -13,5 +13,6 @@ router.delete('/delete-event/:id', eventController.deleteEvent);
 // Rotas de inscrição
 router.get('/registrations', registrationController.getAllRegistrations);
 router.post('/create-registration', registrationController.createRegistration);
+router.get('/registrations/by-email/:email', registrationController.registrationByEmail);
 
 export default router;
