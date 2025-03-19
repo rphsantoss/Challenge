@@ -74,9 +74,7 @@ export const createRegistration = async (userData) => {
 
 export const getRegistrationByEmail = async (email) => {
     try {
-        // Corrija o caminho para incluir /api no início
         const response = await api.get(`/api/registrations/by-email/${email}`);
-        // Com Axios, os dados já estão em response.data
         return response.data;
     } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -84,6 +82,16 @@ export const getRegistrationByEmail = async (email) => {
             return null;
         }
         console.error('Erro ao buscar usuário por email:', error);
-        throw error; // Deixe o erro ser capturado no onSubmit
+        throw error; 
     }
+};
+
+export const updateRegistrationStatus = async (id, status) => {
+    try {
+        const response = await api.patch(`/api/registrations/${id}/status`, { status });
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao alterar status do usuário:', error);
+        throw error;
+    }   
 };

@@ -26,7 +26,7 @@ const registrationController = {
                 email,
                 eventId: parseInt(eventId),
                 referredById: referredById? parseInt(referredById) : null,
-                status: "CONFIRMED",
+                status: "PENDING",
             },  
         });
         res.status(201).json(newRegistration);
@@ -35,7 +35,7 @@ const registrationController = {
         }
     },
 
-    registrationByEmail: async (req: Request, res: Response): Promise<void> => {
+    getRegistrationByEmail: async (req: Request, res: Response): Promise<void> => {
         const { email } = req.params;
     
         try {
@@ -54,6 +54,28 @@ const registrationController = {
             console.error(error);
             res.status(500).json({ message: 'Erro ao buscar usuário' });
         }
-    }
+    },
+
+    updateRegistrationStatus: async (req: Request, res: Response): Promise<any> => {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        try {
+
+            if (!["PENDING", "CONFIRMED", "CANCELED"].includes(status)) {
+                return res.status(400).json({ error: "Status inválido" });
+            }
+
+            const updatedRegistration = await prisma.registration.update({
+                where: { id: parseInt(id) },
+                data: { status },
+            });
+
+            res.json(updatedRegistration);
+        } catch (error) {
+            res.status(500).json({ error: "Erro ao atualizar status" });
+        }
+    },
+    
 }    
 export default registrationController;

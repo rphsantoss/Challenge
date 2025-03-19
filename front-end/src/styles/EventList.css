@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+
+.event-list h2 {
+    color: #333;
+}
+
 h1 {
     text-align: center;
 }
@@ -24,22 +29,6 @@ h1 {
     text-align: left;
     transition: transform 0.2s ease-in-out;
 }
-
-.event-list h2 {
-    color: #333;
-}
-
-
-.event-item {
-    list-style: none;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-
-.event-item:last-child {
-    border-bottom: none;
-} 
 
 .eventList-button {
     background-color: #000000;

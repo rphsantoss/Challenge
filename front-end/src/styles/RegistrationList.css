@@ -25,19 +25,10 @@ h1 {
     transition: transform 0.2s ease-in-out;
 }
 
-
 .registration-list h2 {
     color: #333;
 }
 
-.registration-item {
-    list-style: none;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-} 
-.registration-item:last-child {
-    border-bottom: none;
-}
 
 .registrationList-button {
     background-color: #000000;
@@ -51,4 +42,78 @@ h1 {
     font-size: 16px;
     box-shadow: 0 4px 6px rgba(26, 112, 41, 0.1);
     transition: transform 0.2s ease-in-out;
+}
+
+.buttons {
+    margin-top: 10px;
+    
+}
+
+.confirm-button {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: #218838; 
+}
+
+.cancel-button {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #c82333; 
+}
+
+
+.registration-list .filter-buttons-container {
+    display: flex;      
+    margin-top: 8px ;
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+}
+
+.filter-button {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; 
+    border-radius: 5px;
+    text-align: center;
+    flex-grow: 1; 
+    margin: 0 10px; 
+}
+
+.filter-button.active {
+    background-color: #7d837d;
+    color: white;
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+    margin-right: 10px;
 }
