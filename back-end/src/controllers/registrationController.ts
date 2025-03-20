@@ -73,7 +73,7 @@ const registrationController = {
         try {
 
             if (!["PENDING", "CONFIRMED", "CANCELED"].includes(status)) {
-                return res.status(400).json({ error: "Status inválido" });
+                res.status(400).json({ error: "Status inválido" });
             }
             const registration = await prisma.registration.findUnique({
                 where: { id: parseInt(id) },

@@ -6,7 +6,11 @@ import prisma from './prismaClient';
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({   
+    origin: 'http://localhost:3001',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+    }));
 
 app.use(express.json()); 
 

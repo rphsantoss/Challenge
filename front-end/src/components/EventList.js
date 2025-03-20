@@ -41,8 +41,8 @@ const EventList = () => {
         }
     };
 
-    const handleEdit = (eventId) => {
-        navigate(`/edit-event/${eventId}`);
+    const handleUpdate = (eventId) => {
+        navigate(`/update-event/${eventId}`);
     };
 
     return (
@@ -60,8 +60,8 @@ const EventList = () => {
                         
                             <div className="event-buttons">
                                 <button 
-                                    className="edit-button"
-                                    onClick={() => handleEdit(event.id)}
+                                    className="update-button"
+                                    onClick={() => handleUpdate(event.id)}
                                 >
                                     Editar
                                 </button>

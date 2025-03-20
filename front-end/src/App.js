@@ -5,6 +5,7 @@ import EventList from './components/EventList';
 import RegistrationList from './components/RegistrationList';
 import RegistrationForm from './components/RegistrationForm';
 import EventForm from './components/EventForm'; 
+import UpdateEvent from './components/UpdateEvent'; 
 import Home from './components/Home'; 
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
         <Route path="/" element={<Home />} /> 
         <Route path="/events" element={<EventList />} /> 
         <Route path="/create-event" element={<EventForm />} /> 
+        <Route path="/update-event/:eventId" element={<UpdateEvent />} />
         <Route path="/registrations" element={<RegistrationList />} />
         <Route path="/create-registration" element={<RegistrationForm />} />
       </Routes>

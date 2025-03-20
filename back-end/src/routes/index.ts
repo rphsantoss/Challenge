@@ -6,8 +6,9 @@ const router = Router();
 
 // Rotas de evento
 router.get('/events', eventController.getAllEvents);
+router.get('/event/:id', eventController.getEventById);
 router.post('/create-event', eventController.createEvent);
-router.put('/edit-event/:id', eventController.editEvent);
+router.put('/update-event/:id', eventController.updateEvent);
 router.delete('/delete-event/:id', eventController.deleteEvent);
 
 // Rotas de inscrição

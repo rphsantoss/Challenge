@@ -1,0 +1,139 @@
+.update-event-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.update-event-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.update-event-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #61dafb;
+    outline: none;
+}
+
+.error-message {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.save-btn, .cancel-btn {
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1;
+}
+
+.save-btn {
+    background-color: #185566;
+}
+
+.save-btn:hover {
+    background-color: #0f5981;
+}
+
+.save-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background-color: #777;
+}
+
+.cancel-btn:hover {
+    background-color: #555;
+}
+
+.cancel-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.loading-container {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error-container {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #fff0f0;
+    border-radius: 8px;
+    border: 1px solid #f44336;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h3 {
+    color: #f44336;
+    margin-top: 0;
+}
+
+.error-container button {
+    padding: 10px 15px;
+    margin-top: 15px;
+    background-color: #185566;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error-container button:hover {
+    background-color: #0f5981;
+}
