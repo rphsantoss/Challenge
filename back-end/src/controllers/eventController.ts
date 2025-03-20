@@ -44,14 +44,23 @@ const eventController = {
 
     deleteEvent: async (req: Request, res: Response) => {
         const { id } = req.params; 
-
+        const eventId = parseInt(id);
+    
         try {
-            await prisma.event.delete({
-                where: { id: parseInt(id) }, 
+            
+            await prisma.registration.deleteMany({// primeiro, excluindo todas as inscrições relacionadas a este evento
+                where: { eventId: eventId }
             });
+    
+            await prisma.event.delete({
+                where: { id: eventId }
+            });
+            
             res.status(204).send(); 
         } catch (error) {
-            res.status(500).json({ error: 'Error deleting event' });
+            console.error(`Erro ao excluir evento ${id}:`, error);
+            const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+            res.status(500).json({ error: 'Error deleting event', details: errorMessage });
         }
     },
 

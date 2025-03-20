@@ -43,3 +43,8 @@ h1 {
     box-shadow: 0 4px 6px rgba(26, 112, 41, 0.1);
     transition: transform 0.2s ease-in-out;
 }
+
+.event-buttons {
+    display: flex;
+    gap: 10px;
+}

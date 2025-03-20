@@ -44,10 +44,11 @@ export const editEvent = async (eventId, eventData) => {
     
 export const deleteEvent = async (eventId) => {
     try {
-        const response = await api.delete(`/api/delete-event/${eventId}`);
-        return response.data;
-        } catch (error) {
+        await api.delete(`/api/delete-event/${eventId}`);
+        return true;
+    } catch (error) {
         console.error('Erro ao deletar evento:', error);
+        console.error('Detalhes do erro:', error.response?.data || 'Sem detalhes adicionais');
         throw error;
     }
 };
