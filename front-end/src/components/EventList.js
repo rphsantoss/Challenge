@@ -10,8 +10,14 @@ const EventList = () => {
     const fetchEvents = async () => {
         try {
             const eventsData = await getEvents();
-            setEvents(eventsData);
-            console.log("Eventos carregados:", eventsData);
+
+            const sortedEvents = eventsData.sort((a, b) => {//ordenando eventos por data
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateA - dateB;
+            });
+            setEvents(sortedEvents);
+            console.log("Eventos carregados:", sortedEvents);
         } catch (error) {
             console.error("Erro ao buscar eventos:", error);
         }
@@ -44,6 +50,7 @@ const EventList = () => {
     const handleUpdate = (eventId) => {
         navigate(`/update-event/${eventId}`);
     };
+
 
     return (
         <>
