@@ -17,21 +17,31 @@ const registrationController = {
         }
     },
 
-    createRegistration: async (req: Request, res: Response) => {
+    createRegistration: async (req: Request, res: Response): Promise<any> => {
         const { name, email, eventId, referredById, status } = req.body;
+
         try {
-        const newRegistration = await prisma.registration.create({
-            data: {
-                name,
-                email,
-                eventId: parseInt(eventId),
-                referredById: referredById? parseInt(referredById) : null,
-                status: "PENDING",
-            },  
-        });
-        res.status(201).json(newRegistration);
+            
+            const newRegistration = await prisma.registration.create({
+                data: {
+                    name,
+                    email,
+                    eventId: parseInt(eventId),
+                    referredById: referredById? parseInt(referredById) : null,
+                    status: "PENDING",
+                },  
+            });
+
+            if (status === "CONFIRMED") {
+                await prisma.event.update({
+                    where: { id: parseInt(eventId) },
+                    data: { capacity: { decrement: 1 } },
+                });
+            }
+
+            res.status(201).json(newRegistration);
         } catch (error) {
-        res.status(500).json({ error: 'Error creating registration' });
+            res.status(500).json({ error: 'Error creating registration' });
         }
     },
 
@@ -65,11 +75,26 @@ const registrationController = {
             if (!["PENDING", "CONFIRMED", "CANCELED"].includes(status)) {
                 return res.status(400).json({ error: "Status inválido" });
             }
+            const registration = await prisma.registration.findUnique({
+                where: { id: parseInt(id) },
+                select: { eventId: true, status: true },
+            });
+
+            if (!registration) {
+                return res.status(404).json({ error: "Inscrição não encontrada" });
+            }
 
             const updatedRegistration = await prisma.registration.update({
                 where: { id: parseInt(id) },
                 data: { status },
             });
+
+            if(status === "CONFIRMED"){
+                await prisma.event.update({
+                    where: { id: registration.eventId },
+                    data: { capacity: { decrement: 1 } },
+                });
+            }
 
             res.json(updatedRegistration);
         } catch (error) {

@@ -133,7 +133,7 @@ const RegistrationForm = () => {
                         {errors.email && <span className="error-message">{errors.email.message}</span>}
                     </div>
 
-                    {events.length === 0 ? (
+                    {events.length === 0  ? (
                         <p className="error-message">Nenhum evento disponível para inscrição.</p>
                     ) : (
                         <div className="form-group">
@@ -143,7 +143,7 @@ const RegistrationForm = () => {
                                 {...register('eventId', { required: 'Selecione um evento' })}
                             >
                                 <option value="">-- Escolha um evento --</option>
-                                {events.map(event => (
+                                {events.filter(event => event.capacity > 0).map(event => (
                                     <option key={event.id} value={event.id}>
                                         {event.title} - {new Date(event.date).toLocaleDateString()} ({event.capacity} vagas)
                                     </option>
