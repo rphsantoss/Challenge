@@ -6,12 +6,19 @@ import '../styles/RegistrationList.css';
 const RegistrationList = () => {
     const navigate = useNavigate();
     const [registrations, setRegistrations] = useState([]);
-    const [selectedStatus, setSelectedStatus] = useState(null);
+    const [selectedStatus, setSelectedStatus] = useState('PENDING');
 
     const fetchRegistrations = async () => {
         try {
             const registrationsData = await getRegistrations();
-            setRegistrations(registrationsData);
+            const sortedRegistrations = registrationsData.sort((a, b) => {
+                
+                const dateA = new Date(a.createdAt || 0);
+                const dateB = new Date(b.createdAt || 0);
+                return dateB - dateA; 
+            });
+
+            setRegistrations(sortedRegistrations);
         } catch (error) {
             console.error('Erro ao buscar inscrições:', error);
         }
