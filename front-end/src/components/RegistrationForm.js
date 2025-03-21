@@ -6,6 +6,8 @@ import '../styles/RegistrationForm.css';
 
 const RegistrationForm = () => {
 
+    const [isLoading, setLoading] = useState(true)
+
     const { 
         register, 
         handleSubmit, 
@@ -26,6 +28,7 @@ const RegistrationForm = () => {
 
     useEffect(() => {
         const fetchEvents = async () => {
+            setLoading(true);
             try {
                 const response = await getEvents();
                 setValue('events', response || []); 
@@ -36,6 +39,8 @@ const RegistrationForm = () => {
                     success: false,
                     error: "Erro ao buscar eventos. Tente novamente mais tarde."
                 });
+            } finally {
+                setLoading(false); // Finaliza o carregamento independente de sucesso ou erro
             }
         };
 

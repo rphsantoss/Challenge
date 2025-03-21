@@ -55,6 +55,12 @@ const EventList = () => {
     return (
         <>
             <h1>Lista de Eventos</h1> 
+            <button 
+                    className="home" 
+                    onClick={() => navigate('/')}
+                >
+                    Voltar para Home
+                </button>
             <div className="event-list">
                 <button className="eventList-button"
                         onClick={() => navigate("/create-event")} >

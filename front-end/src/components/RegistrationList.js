@@ -59,6 +59,13 @@ const RegistrationList = () => {
         <>
             <h1>Lista de Inscritos</h1>
 
+            <button 
+                    className="home" 
+                    onClick={() => navigate('/')}
+                >
+                    Voltar para Home
+                </button>
+
             <div className="registration-list">
                 <button className="registrationList-button" onClick={() => navigate("/create-registration")}>
                     Nova Inscrição
@@ -122,15 +129,6 @@ const RegistrationList = () => {
                                             Cancelar
                                         </button>
                                     </>
-                                )}
-
-                                {registration.status === 'CANCELED' && (
-                                    <button
-                                        className="confirm-button"
-                                        onClick={() => handleUpdateStatus(registration.id, 'CONFIRMED')}
-                                    >
-                                        Confirmar
-                                    </button>
                                 )}
                             </div>
                         </li>

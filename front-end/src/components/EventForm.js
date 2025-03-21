@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from "react-router-dom";
 import { createEvent } from '../api';
 import '../styles/EventForm.css'; 
 
 const EventForm = () => {
+    const navigate = useNavigate();
     const { 
         register, 
         handleSubmit, 
@@ -125,6 +127,7 @@ const EventForm = () => {
                 {isSubmitting ? 'Criando...' : 'Criar Evento'}
                 </button>
             </form>
+            
             </div>
             </>
         );

@@ -21,7 +21,7 @@ const Home = () => {
                     className="home-button"
                     onClick={() => navigate("/create-event")}
                 >
-                    Criar Evento
+                    Novo Evento
                 </button>
                 
                 <button 
@@ -35,7 +35,7 @@ const Home = () => {
                     className="home-button"
                     onClick={() => navigate("/create-registration")}
                 >
-                    Se-Inscrever
+                    Nova Inscrição
                 </button>
             </div>
         </div>
