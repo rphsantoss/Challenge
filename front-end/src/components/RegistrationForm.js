@@ -47,10 +47,30 @@ const RegistrationForm = () => {
         fetchEvents();
     }, [setValue]);
 
+    const checkExistingRegistration = async (email) => {
+        try {
+            const registration = await getRegistrationByEmail(email);
+            return registration && registration.id;
+        } catch (error) {
+            console.error("Erro ao verificar inscrição existente:", error);
+            return false;
+        }
+    };
+
     const onSubmit = async (data) => {
         try {
             setSubmitStatus({ success: false, error: null });
-    
+            
+            const isAlreadyRegistered = await checkExistingRegistration(data.email);
+            
+            if (isAlreadyRegistered) {
+                setSubmitStatus({
+                    success: false,
+                    error: 'Você já está inscrito em um evento. Não é permitido se inscrever em múltiplos eventos.'
+                });
+                return;
+            }
+            
             let referredById = null;
     
             if (data.referralEmail) {
